@@ -10,4 +10,6 @@ public class WypozyczalniaMotocykliApplication {
         SpringApplication.run(WypozyczalniaMotocykliApplication.class, args);
     }
 
+
+
 }
