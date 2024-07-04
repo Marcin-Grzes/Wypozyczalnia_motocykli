@@ -29,6 +29,22 @@
     <properties>
         <java.version>22</java.version>
     </properties>
+
+    <!-- JoinFaces -->
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.joinfaces</groupId>
+                <artifactId>joinfaces-platform</artifactId>
+                <version>5.3.1</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+    <!-- JoinFaces -->
+
+
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -38,6 +54,29 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
+
+
+
+        <!-- JoinFaces -->
+
+            <dependency>
+                <groupId>org.joinfaces</groupId>
+                <artifactId>faces-spring-boot-starter</artifactId>
+                <exclusions>
+                    <exclusion>
+                        <groupId>org.joinfaces</groupId>
+                        <artifactId>mojarra4-spring-boot-starter</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+            <dependency>
+                <groupId>org.joinfaces</groupId>
+                <artifactId>myfaces4-spring-boot-starter</artifactId>
+            </dependency>
+
+        <!-- JoinFaces -->
+
+
 
         <dependency>
             <groupId>com.h2database</groupId>
@@ -51,47 +90,32 @@
             <scope>test</scope>
         </dependency>
 
-        <!-- JSF -->
-        <dependency>
-            <groupId>org.glassfish</groupId>
-            <artifactId>jakarta.faces</artifactId>
-            <version>4.1.0</version>
-        </dependency>
-
-        <dependency>
-            <groupId>jakarta.platform</groupId>
-            <artifactId>jakarta.jakartaee-api</artifactId>
-            <version>10.0.0</version>
-            <scope>provided</scope>
-        </dependency>
-
 
         <!-- PrimeFaces -->
-        <dependency>
-            <groupId>org.primefaces</groupId>
-            <artifactId>primefaces</artifactId>
-            <version>14.0.2</version>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>org.primefaces</groupId>-->
+<!--            <artifactId>primefaces</artifactId>-->
+<!--            <version>13.0.0</version>-->
+<!--            <classifier>jakarta</classifier>-->
+<!--        </dependency>-->
 
         <!-- PrimeFaces -->
 
-        <dependency>
-            <groupId>com.sun.faces</groupId>
-            <artifactId>jsf-api</artifactId>
-            <version>2.2.14</version>
-        </dependency>
+        <!-- MyFaces -->
+<!--        <dependency>-->
+<!--            <groupId>org.apache.myfaces.core</groupId>-->
+<!--            <artifactId>myfaces-impl</artifactId>-->
+<!--            <version>5.0.0-SNAPSHOT</version>-->
+<!--        </dependency>-->
 
-        <dependency>
-            <groupId>org.apache.myfaces.core</groupId>
-            <artifactId>myfaces-impl</artifactId>
-            <version>4.0.2</version>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>org.apache.myfaces.core</groupId>-->
+<!--            <artifactId>myfaces-api</artifactId>-->
+<!--            <version>5.0.0-SNAPSHOT</version>-->
+<!--        </dependency>-->
+        <!-- MyFaces -->
 
-        <dependency>
-            <groupId>org.apache.myfaces.core</groupId>
-            <artifactId>myfaces-api</artifactId>
-            <version>4.0.2</version>
-        </dependency>
+
 
         <dependency>
             <groupId>org.apache.tomcat.embed</groupId>
@@ -100,23 +124,23 @@
             <scope>provided</scope>
         </dependency>
 
-        <dependency>
-            <groupId>org.ocpsoft.rewrite</groupId>
-            <artifactId>rewrite-servlet</artifactId>
-            <version>10.0.2.Final</version>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>org.ocpsoft.rewrite</groupId>-->
+<!--            <artifactId>rewrite-servlet</artifactId>-->
+<!--            <version>10.0.2.Final</version>-->
+<!--        </dependency>-->
 
-        <dependency>
-            <groupId>org.ocpsoft.rewrite</groupId>
-            <artifactId>rewrite-integration-faces</artifactId>
-            <version>10.0.2.Final</version>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>org.ocpsoft.rewrite</groupId>-->
+<!--            <artifactId>rewrite-integration-faces</artifactId>-->
+<!--            <version>10.0.2.Final</version>-->
+<!--        </dependency>-->
 
-        <dependency>
-            <groupId>org.ocpsoft.rewrite</groupId>
-            <artifactId>rewrite-config-prettyfaces</artifactId>
-            <version>10.0.2.Final</version>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>org.ocpsoft.rewrite</groupId>-->
+<!--            <artifactId>rewrite-config-prettyfaces</artifactId>-->
+<!--            <version>10.0.2.Final</version>-->
+<!--        </dependency>-->
 
 
         <!--CDI-->
@@ -129,11 +153,11 @@
         </dependency>-->
 
         <!-- Weld -->
-        <dependency>
-            <groupId>org.jboss.weld.se</groupId>
-            <artifactId>weld-se-core</artifactId>
-            <version>5.1.2.Final</version>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>org.jboss.weld.se</groupId>-->
+<!--            <artifactId>weld-se-core</artifactId>-->
+<!--            <version>5.1.2.Final</version>-->
+<!--        </dependency>-->
         <!-- Weld -->
 
         <!-- Lombok -->
@@ -172,7 +196,7 @@
     </dependencies>
 
     <build>
-        <outputDirectory>src/main/webapp/WEB-INF/classes</outputDirectory>
+<!--        <outputDirectory>src/main/webapp/WEB-INF/classes</outputDirectory>-->
         <plugins>
 <!--            <plugin>-->
 <!--                <groupId>org.apache.maven.plugins</groupId>-->
