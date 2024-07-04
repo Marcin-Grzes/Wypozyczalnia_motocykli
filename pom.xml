@@ -121,15 +121,27 @@
             <artifactId>primefaces-spring-boot-starter</artifactId>
         </dependency>
 
-        <dependency>
-            <groupId>org.joinfaces</groupId>
-            <artifactId>omnifaces-spring-boot-starter</artifactId>
-        </dependency>
 
-        <dependency>
-            <groupId>org.joinfaces</groupId>
-            <artifactId>rewrite-spring-boot-starter</artifactId>
-        </dependency>
+
+<!--        <dependency>-->
+<!--            <groupId>org.joinfaces</groupId>-->
+<!--            <artifactId>omnifaces-spring-boot-starter</artifactId>-->
+<!--        </dependency>-->
+
+<!--        <dependency>-->
+<!--            <groupId>org.joinfaces</groupId>-->
+<!--            <artifactId>rewrite-spring-boot-starter</artifactId>-->
+<!--        </dependency>-->
+
+<!--        <dependency>-->
+<!--            <groupId>org.joinfaces</groupId>-->
+<!--            <artifactId>weld-spring-boot-starter</artifactId>-->
+<!--        </dependency>-->
+
+<!--        <dependency>-->
+<!--            <groupId>org.joinfaces</groupId>-->
+<!--            <artifactId>openwebbeans-spring-boot-starter</artifactId>-->
+<!--        </dependency>-->
 
         <!-- JoinFaces -->
 
