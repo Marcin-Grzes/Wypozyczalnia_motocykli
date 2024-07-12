@@ -13,7 +13,6 @@ public class Motorcycle {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
-
     private String marka;
     private String model;
     private String kolor;
