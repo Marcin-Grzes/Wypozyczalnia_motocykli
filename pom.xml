@@ -131,10 +131,10 @@
             <artifactId>weld-spring-boot-starter</artifactId>
         </dependency>
 
-        <dependency>
+       <!-- <dependency>
             <groupId>org.joinfaces</groupId>
             <artifactId>openwebbeans-spring-boot-starter</artifactId>
-        </dependency>
+        </dependency>-->
 
         <!-- JoinFaces -->
 

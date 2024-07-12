@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+<ui:composition template="./templates/layout.xhtml">
+    <ui:define name="title">
+        Strona główna
+    </ui:define>
+
+    <ui:define name="content">
+        <h:form>
+            <p:panel header="New Motorcycle">
+                <p:messages autoUpdate="true"/>
+                <h:panelGrid columns="2">
+                    <h:outputLabel for="marka" value="Marka"/>
+                    <p:inputText id="marka" value="#{motorcycleController.newMotorcycle.marka}"/>
+
+                    <h:outputLabel for="model" value="Model"/>
+                    <p:inputText id="model" value="#{motorcycleController.newMotorcycle.model}"/>
+
+                    <h:outputLabel for="kolor" value="Kolor"/>
+                    <p:inputText id="kolor" value="#{motorcycleController.newMotorcycle.kolor}"/>
+
+                    <h:outputLabel for="pojemnosc" value="Pojemność motocykla"/>
+                    <p:inputText id="pojemnosc" value="#{motorcycleController.newMotorcycle.pojemnosc}"/>
+
+                    <h:outputLabel for="moc" value="Moc"/>
+                    <p:inputText id="moc" value="#{motorcycleController.newMotorcycle.moc}"/>
+
+                    <h:outputLabel for="rocznik" value="Rok produkcji"/>
+                    <p:inputText id="rocznik" value="#{motorcycleController.newMotorcycle.rocznik}"/>
+
+                    <h:outputLabel for="cena" value="Cena za dobę"/>
+                    <p:inputText id="cena" value="#{motorcycleController.newMotorcycle.cena}"/>
+
+                    <h:outputLabel for="imageLink" value="Image Link"/>
+                    <p:inputText id="imageLink" value="#{motorcycleController.newMotorcycle.imageLink}"/>
+
+                    <p:commandButton action="#{motorcycleController.addMotorcycle}" value="Submit"/>
+                </h:panelGrid>
+            </p:panel>
+        </h:form>
+    </ui:define>
+
+</ui:composition>
+
+</html>

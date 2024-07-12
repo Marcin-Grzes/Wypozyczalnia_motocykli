@@ -11,7 +11,8 @@ import java.math.BigDecimal;
 @Entity
 public class Motorcycle {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.TABLE, generator = "motorcycle_gen")
+    @TableGenerator(name = "motorcycle_gen", initialValue = 2)
     private Long id;
     private String marka;
     private String model;

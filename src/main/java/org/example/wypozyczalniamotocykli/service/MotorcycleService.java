@@ -5,7 +5,6 @@ import org.example.wypozyczalniamotocykli.repository.MotorcycleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.math.BigDecimal;
 import java.util.List;
 
 @Service
@@ -17,7 +16,7 @@ public class MotorcycleService {
         this.motorcycleRepository = motorcycleRepository;
     }
 
-    public Motorcycle createMotorcycle() {
+/*    public Motorcycle createMotorcycle() {
         Motorcycle motorcycle = new Motorcycle();
         motorcycle.setMarka("Yamaha");
         motorcycle.setModel("R1");
@@ -28,10 +27,10 @@ public class MotorcycleService {
         motorcycle.setCena(new BigDecimal(300));
         motorcycle.setImageLink("static/images_bike/Yamaha_R1_blue_2024.jpg");
         return motorcycleRepository.save(motorcycle);
-    }
-/*    public Motorcycle saveMotorcycle(Motorcycle motorcycle) {
-        return motorcycleRepository.save(motorcycle);
     }*/
+    public void saveMotorcycle(Motorcycle motorcycle) {
+        motorcycleRepository.save(motorcycle);
+    }
 
     public List<Motorcycle> getAllMotorcycles() {
         return motorcycleRepository.findAll();

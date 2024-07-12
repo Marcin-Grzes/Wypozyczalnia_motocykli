@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+<ui:composition template="./templates/layout.xhtml">
+    <ui:define name="title">
+        Strona główna
+    </ui:define>
+
+    <ui:define name="content">
+        <h:form id="form">
+            <p:dataTable var="motorcycle" value="#{motorcycleController.motorcycles}">
+                <p:column headerText="Marka">
+                    <h:outputText value="#{motorcycle.marka}"/>
+                </p:column>
+                <p:column headerText="Model">
+                    <h:outputText value="#{motorcycle.model}"/>
+                </p:column>
+                <p:column headerText="Kolor">
+                    <h:outputText value="#{motorcycle.kolor}"/>
+                </p:column>
+                <p:column headerText="Pojemność silnika">
+                    <h:outputText value="#{motorcycle.pojemnosc} "/>
+                </p:column>
+                <p:column headerText="Moc">
+                    <h:outputText value="#{motorcycle.moc} KM"/>
+                </p:column>
+                <p:column headerText="Rocznik">
+                    <h:outputText value="#{motorcycle.rocznik}"/>
+                </p:column>
+                <p:column headerText="Cena">
+                    <h:outputText value="#{motorcycle.cena} zł"/>
+                </p:column>
+                <p:column headerText="Image Link">
+                    <h:outputText value="#{motorcycle.imageLink}"/>
+                </p:column>
+            </p:dataTable>
+        </h:form>
+</ui:define>
+
+        </ui:composition>
+
+</html>
