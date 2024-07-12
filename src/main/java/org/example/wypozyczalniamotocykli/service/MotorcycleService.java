@@ -6,14 +6,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 @Service
 public class MotorcycleService {
-    private final MotorcycleRepository motorcycleRepository;
+    private final MotorcycleRepository MotorcycleRepository;
 
     @Autowired
     public MotorcycleService(MotorcycleRepository motorcycleRepository){
-        this.motorcycleRepository = motorcycleRepository;
+        this.MotorcycleRepository = motorcycleRepository;
     }
 
     public Motorcycle createMotorcycle() {
@@ -26,6 +27,13 @@ public class MotorcycleService {
         motorcycle.setRocznik(2024);
         motorcycle.setCena(new BigDecimal(300));
         motorcycle.setImageLink("static/images_bike/Yamaha_R1_blue_2024.jpg");
-        return motorcycleRepository.save(motorcycle);
+        return MotorcycleRepository.save(motorcycle);
+    }
+//    public Motorcycle saveMotorcycle(Motorcycle motorcycle) {
+//        return MotorcycleRepository.save(motorcycle);
+//    }
+
+    public List<Motorcycle> getAllMotorcycles() {
+        return MotorcycleRepository.findAll();
     }
 }
