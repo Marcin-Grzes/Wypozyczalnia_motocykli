@@ -10,11 +10,11 @@ import java.util.List;
 
 @Service
 public class MotorcycleService {
-    private final MotorcycleRepository MotorcycleRepository;
+    private final MotorcycleRepository motorcycleRepository;
 
     @Autowired
     public MotorcycleService(MotorcycleRepository motorcycleRepository){
-        this.MotorcycleRepository = motorcycleRepository;
+        this.motorcycleRepository = motorcycleRepository;
     }
 
     public Motorcycle createMotorcycle() {
@@ -27,13 +27,13 @@ public class MotorcycleService {
         motorcycle.setRocznik(2024);
         motorcycle.setCena(new BigDecimal(300));
         motorcycle.setImageLink("static/images_bike/Yamaha_R1_blue_2024.jpg");
-        return MotorcycleRepository.save(motorcycle);
+        return motorcycleRepository.save(motorcycle);
     }
-//    public Motorcycle saveMotorcycle(Motorcycle motorcycle) {
-//        return MotorcycleRepository.save(motorcycle);
-//    }
+/*    public Motorcycle saveMotorcycle(Motorcycle motorcycle) {
+        return motorcycleRepository.save(motorcycle);
+    }*/
 
     public List<Motorcycle> getAllMotorcycles() {
-        return MotorcycleRepository.findAll();
+        return motorcycleRepository.findAll();
     }
 }
