@@ -66,3 +66,4 @@ secrets.yml
 .gradletasknamecache
 .git-hooks/
 node_modules/
+/src/main/resources/application-production.properties

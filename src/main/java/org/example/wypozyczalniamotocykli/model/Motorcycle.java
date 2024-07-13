@@ -14,6 +14,8 @@ public class Motorcycle {
     @GeneratedValue(strategy = GenerationType.TABLE, generator = "motorcycle_gen")
     @TableGenerator(name = "motorcycle_gen", initialValue = 2)
     private Long id;
+    @Enumerated(EnumType.STRING)
+    private MotorcycleStatus status = MotorcycleStatus.AVAILABLE;
     private String marka;
     private String model;
     private String kolor;
