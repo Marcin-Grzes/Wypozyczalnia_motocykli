@@ -1,5 +1,8 @@
 package org.example.wypozyczalniamotocykli.controller;
 
+import jakarta.annotation.PostConstruct;
+import jakarta.faces.application.FacesMessage;
+import jakarta.faces.context.FacesContext;
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -7,6 +10,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.example.wypozyczalniamotocykli.model.Motorcycle;
 import org.example.wypozyczalniamotocykli.service.MotorcycleService;
+import org.primefaces.PrimeFaces;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.http.ResponseEntity;
@@ -55,7 +59,18 @@ public class MotorcycleController implements Serializable {
     public ResponseEntity<?> deleteMotorcycle(@PathVariable(value = "id") Long motorcycleId) {
         return motorcycleService.deleteMotorcycle(motorcycleId);
     }
-}
+
+    public void clearMultiViewState() {
+        FacesContext context = FacesContext.getCurrentInstance();
+        String viewId = context.getViewRoot().getViewId();
+        PrimeFaces.current().multiViewState().clearAll(viewId, true, this::showMessage);
+    }
+
+    private void showMessage(String clientId) {
+        FacesContext.getCurrentInstance()
+                .addMessage(null,
+                        new FacesMessage(FacesMessage.SEVERITY_INFO, clientId + " multiview state has been cleared out", null));
+}}
 
 
 /*
