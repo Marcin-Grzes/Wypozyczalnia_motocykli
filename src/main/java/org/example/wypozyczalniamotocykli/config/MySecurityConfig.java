@@ -2,6 +2,7 @@ package org.example.wypozyczalniamotocykli.config;
 
 /*import org.example.wypozyczalniamotocykli.service.MyUserService;
 import org.springframework.beans.factory.annotation.Autowired;*/
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 //import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -14,28 +15,47 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.DefaultSecurityFilterChain;*/
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.stereotype.Component;
+
 import static org.springframework.security.config.Customizer.withDefaults;
 
 
+/*
 @Configuration
-public class MySecurityConfig {
+@EnableWebSecurity
+public class MySecurityConfig extends WebSecurityConfigurerAdapter{
 
-    @Bean
-    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
+    @Override
+    protected void configure(HttpSecurity http) throws Exception
+    {
         http
-                .authorizeHttpRequests((authz) -> authz
-                        .antMatchers("/register", "/login").permitAll()
-                        .antMatchers("/admin/**").hasRole("ADMIN")
-                        .antMatchers("/user/**").hasAnyRole("USER", "ADMIN")
-                        .anyRequest().authenticated()
-                )
-                .httpBasic(withDefaults());
-        return http.build();
+                .csrf().disable()
+                .authorizeRequests().anyRequest().authenticated()
+                .and()
+                .httpBasic();
     }
 
-}
+*/
 
+
+
+
+//    @Bean
+//    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
+//        http.authorizeRequests()
+//                        .antMatchers("/register", "/login").permitAll()
+//                        .antMatchers("/admin/**").hasRole("ADMIN")
+//                        .antMatchers("/user/**").hasAnyRole("USER", "ADMIN")
+//                        .anyRequest().authenticated()
+//                        .and()
+//                        .httpBasic();
+//        return http.build();
+//    }
+
+
+//http.authorizeHttpRequests((authz) -> authz
 
 /*@EnableWebSecurity
 public class MySecurityConfig {

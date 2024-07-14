@@ -54,5 +54,4 @@ public class MotorcycleService {
             // it might be a good idea to also return proper HTTP status in case of failure
             return ResponseEntity.notFound().build();
         }
-
 }}
