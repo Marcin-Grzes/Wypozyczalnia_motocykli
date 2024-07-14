@@ -14,18 +14,17 @@
             <p:panel header="Rejestracja">
                 <h:panelGrid columns="2">
                     <h:outputLabel for="username" value="Nazwa użytkownika:" />
-                    <p:inputText id="username" value="#{registrationController.username}" required="true" />
+                    <p:inputText id="username" value="#{registrationController.user_app.username}" required="true" />
 
                     <h:outputLabel for="password" value="Hasło:" />
-                    <p:password id="password" value="#{registrationBean.password}" required="true" />
-
-                    <h:outputLabel for="email" value="Email:" />
-                    <p:inputText id="email" value="#{registrationBean.email}" required="true" />
-
-                    <p:commandButton value="Zarejestruj" action="#{registrationBean.register}" update=":registrationForm" />
+                    <p:password id="password" value="#{registrationController.user_app.password}" required="true" />
+<!--                    <?>-->
+                    <p:commandButton value="Zarejestruj" action="#{registrationController.newUser}" update=":registrationForm" />
                 </h:panelGrid>
+                <p:messages id="messages" autoUpdate="true" closable="true"/>
             </p:panel>
         </h:form>
+
     </ui:define>
 </ui:composition>
 </html>
