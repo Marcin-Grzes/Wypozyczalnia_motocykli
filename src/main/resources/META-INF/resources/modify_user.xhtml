@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+<ui:composition template="templates/layout.xhtml">
+    <ui:define name="title">
+        Zmiana danych użytkownika
+    </ui:define>
+
+    <ui:define name="content">
+        <h:form>
+            <p:messages autoUpdate="true" closable="true" />
+
+            <p:panelGrid columns="2">
+                <p:outputLabel value="Nazwa użytkownika:" for="username" />
+                <p:inputText id="username" value="#{modifyController.currentUser.username}" required="true" />
+
+                <p:outputLabel value="Hasło:" for="password" />
+                <p:inputText id="password" value="#{modifyController.currentUser.password}" required="true" />
+
+                <p:outputLabel value="Ulica:" for="street" />
+                <p:inputText id="street" value="#{modifyController.currentUser.password}" required="true" />
+
+                <p:outputLabel value="Numer domu:" for="number_house" />
+                <p:inputText id="number_house" value="#{modifyController.currentUser.number_house}" required="true" />
+
+                <p:outputLabel value="Numer mieszkania:" for="number_flat" />
+                <p:inputText id="number_flat" value="#{modifyController.currentUser.password}"/>
+
+                <p:outputLabel value="Kod pocztowy:" for="postal_code" />
+                <p:inputText id="postal_code" value="#{modifyController.currentUser.postal_code}" required="true" />
+
+                <p:outputLabel value="Miejscowość:" for="city" />
+                <p:inputText id="city" value="#{modifyController.currentUser.city}" required="true" />
+
+                <p:outputLabel value="Numer telefonu:" for="phone_number" />
+                <p:inputText id="phone_number" value="#{modifyController.currentUser.phone_number}" required="true" />
+
+                <!-- Dodaj tutaj pola dla innych właściwości -->
+            </p:panelGrid>
+
+            <p:commandButton value="Save" action="#{modifyController.save}" update="@form" />
+        </h:form>
+    </ui:define>
+</ui:composition>
+</html>
