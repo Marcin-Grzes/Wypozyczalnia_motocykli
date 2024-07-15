@@ -4,9 +4,7 @@ import lombok.*;
 
 import java.math.BigDecimal;
 
-@Getter
-@Setter
-@ToString
+@Data
 @NoArgsConstructor
 @Entity
 public class Motorcycle {
@@ -24,5 +22,8 @@ public class Motorcycle {
     private int rocznik;
     private BigDecimal cena;
     private String imageLink;
+    @ManyToOne
+    @JoinColumn(name = "rezerwation_id")
+    private Rezerwation rezerwation;
 
 }

@@ -15,9 +15,10 @@
             <h:panelGrid columns="2">
             <h:inputText title="Username" value="#{loginController.user_app.username}" />
             <h:inputSecret title="Password" value="#{loginController.user_app.password}" />
-            <p:commandButton value="Log in" action="#{loginController.loginUser}" update="loginForm"/>
-                <p:growl id="growl" showDetail="true"/>
+            <p:commandButton value="Log in" action="#{loginController.loginUser}" update="loginForm, growl"/>
+<!--                <p:growl id="growl" showDetail="true"/>-->
                 </h:panelGrid>
+                <p:messages id="messages" autoUpdate="true" closable="true"/>
             </p:panel>
         </h:form>
     </ui:define>

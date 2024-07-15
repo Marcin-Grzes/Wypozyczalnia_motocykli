@@ -50,16 +50,16 @@ public class LoginController implements Serializable {
             User_app user = existingUser.get();
             if (!user.getPassword().equals(user_app.getPassword())) {
                 System.out.println("Niepoprawne hasło");
-                FacesContext.getCurrentInstance().addMessage("messages", new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error: ", "Niepoprawne hasło."));
-                return "login?faces-redirect=true";
+                FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Niepoprawne hasło.", "Niepoprawne hasło."));
+                return "/login";
             } else {
                 httpSession.setAttribute("user", user);
-                return "/home";
+                return "home.xhtml?faces-redirect=true";
             }
         } else {
-            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error: ", "Użytkownik o podanej nazwie nie istnieje."));
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Użytkownik o podanej nazwie nie istnieje.", "Użytkownik o podanej nazwie nie istnieje."));
             System.out.println("Brak użytkownika o podanej nazwie");
-            return "login?faces-redirect=true";
+            return "/login";
         }
     }
 }
