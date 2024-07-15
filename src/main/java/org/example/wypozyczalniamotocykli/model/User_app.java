@@ -54,7 +54,7 @@ public class User_app {
 
     private Integer PESEL;
 
-    @OneToMany(mappedBy = "user")
+    @OneToMany(mappedBy = "user", fetch = FetchType.EAGER)
     private List<Rezerwation> rezerwation = new ArrayList<>();
 }
 

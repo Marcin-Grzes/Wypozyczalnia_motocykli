@@ -21,7 +21,7 @@ public class Rezerwation {
     @JoinColumn(name = "user_id")
     private User_app user;
 
-    @OneToMany(mappedBy = "rezerwation")
+    @OneToMany(mappedBy = "rezerwation", fetch = FetchType.EAGER)
     private List<Motorcycle> motorcycle = new ArrayList<>();
 
     private LocalDateTime start_date;

@@ -26,6 +26,10 @@ public class ModifyController implements Serializable {
     private MyUserService userService;
     private User_app currentUser;
 
+    @Autowired
+    public ModifyController(MyUserService userService) {
+        this.userService = userService;
+    }
     @PostConstruct
     public void init() {
         String username = FacesContext.getCurrentInstance().getExternalContext().getRemoteUser();
