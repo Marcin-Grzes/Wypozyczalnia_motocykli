@@ -46,13 +46,13 @@ public class User_app {
 
     private String city;
 
-    private int phone_number;
+    private Integer phone_number;
 
     private String number_driving_license;
 
     private String number_identity_card;
 
-    private int PESEL;
+    private Integer PESEL;
 
     @OneToMany(mappedBy = "user")
     private List<Rezerwation> rezerwation = new ArrayList<>();
