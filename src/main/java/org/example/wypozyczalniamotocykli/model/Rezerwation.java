@@ -1,12 +1,11 @@
 package org.example.wypozyczalniamotocykli.model;
 
 import lombok.*;
-import org.example.wypozyczalniamotocykli.model.User_app;
-import org.example.wypozyczalniamotocykli.model.Motorcycle;
 import jakarta.persistence.*;
+
+import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.List;
+import java.time.ZoneId;
 
 @Entity
 @Data
@@ -26,7 +25,8 @@ public class Rezerwation {
     @JoinColumn(name = "motorcycle_id")
     private Motorcycle motorcycle;
 
-    private LocalDateTime start_date;
+    private LocalDate start_date;
 
-    private LocalDateTime end_date;
+    private LocalDate end_date;
+
 }

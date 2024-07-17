@@ -8,15 +8,39 @@
     <ui:define name="title">
         Strona główna
     </ui:define>
-
     <ui:define name="content">
-        <ui:repeat value="#{listRezerwController.getCurrentUserRezerwations()}" var="rezerwation">
+    <h:form>
+        <div class="card">
+            <p:dataTable var="rezerwation" value="#{listRezerwController.getCurrentUserRezerwations()}">
+                <p:column headerText="ID Rezerwacji:">
+                    <h:outputText value="#{rezerwation.id}" />
+                </p:column>
+
+                <p:column headerText="Motocykl">
+                    <h:outputText value="#{rezerwation.motorcycle.marka} #{rezerwation.motorcycle.model}" />
+                </p:column>
+
+                <p:column headerText="Data rozpoczęcia rezerwacji:">
+                    <h:outputText value="#{rezerwation.start_date}"/>
+                </p:column>
+
+                <p:column headerText="Data zakończenia:">
+                    <h:outputText value="#{rezerwation.end_date}"/>
+                </p:column>
+            </p:dataTable>
+        </div>
+    </h:form>
+    </ui:define>
+
+
+
+<!--        <ui:repeat value="#{listRezerwController.getCurrentUserRezerwations()}" var="rezerwation">
             <p>ID Rezerwacji: #{rezerwation.id}</p>
             <p>Marka i model: #{rezerwation.motorcycle.marka} #{rezerwation.motorcycle.model}</p>
             <p>Data rozpoczęcia: #{rezerwation.start_date}</p>
             <p>Data zakończenia: #{rezerwation.end_date}</p>
         </ui:repeat>
-    </ui:define>
+    -->
 
 </ui:composition>
 
