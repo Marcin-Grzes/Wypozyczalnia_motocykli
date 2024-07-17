@@ -54,6 +54,7 @@ public class User_app {
 
     private Integer PESEL;
 
-    @OneToMany(mappedBy = "user", fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+    @ToString.Exclude // Wykluczanie pola z metody toString()
     private List<Rezerwation> rezerwation = new ArrayList<>();
 }

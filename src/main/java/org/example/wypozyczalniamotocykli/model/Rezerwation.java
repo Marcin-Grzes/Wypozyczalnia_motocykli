@@ -10,8 +10,7 @@ import java.util.List;
 
 @Entity
 @Data
-
-@RequiredArgsConstructor
+@NoArgsConstructor
 public class Rezerwation {
 
     @Id
