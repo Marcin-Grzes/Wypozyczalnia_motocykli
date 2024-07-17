@@ -3,6 +3,7 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.List;
 
 @Data
@@ -12,7 +13,7 @@ public class Motorcycle {
     @Id
     @GeneratedValue(strategy = GenerationType.TABLE, generator = "motorcycle_gen")
     @TableGenerator(name = "motorcycle_gen", initialValue = 2)
-    private Long id;
+    private int id;
     @Enumerated(EnumType.STRING)
     private MotorcycleStatus status = MotorcycleStatus.AVAILABLE;
     private String marka;
@@ -25,6 +26,6 @@ public class Motorcycle {
     private String imageLink;
 
     @OneToMany(mappedBy = "motorcycle")
-    private List<Rezerwation> rezerwations_motorcycle;
+    private List<Rezerwation> rezerwations_motorcycle = new ArrayList<>();
 
 }
