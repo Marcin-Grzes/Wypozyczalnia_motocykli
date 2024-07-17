@@ -1,12 +1,8 @@
 package org.example.wypozyczalniamotocykli.controller;
 
-import jakarta.inject.Inject;
 import jakarta.servlet.http.HttpSession;
 import org.example.wypozyczalniamotocykli.model.User_app;
-import org.example.wypozyczalniamotocykli.repository.MotorcycleRepository;
-import jakarta.annotation.ManagedBean;
 import jakarta.annotation.PostConstruct;
-import jakarta.enterprise.context.RequestScoped;
 import jakarta.faces.context.FacesContext;
 import lombok.*;
 import org.example.wypozyczalniamotocykli.model.Motorcycle;
@@ -16,13 +12,11 @@ import org.example.wypozyczalniamotocykli.service.RezerwationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
-import org.springframework.web.context.annotation.RequestScope;
 
 import java.io.Serializable;
 import java.time.temporal.ChronoUnit;
+import java.util.List;
 import java.util.Optional;
-import jakarta.servlet.http.HttpSession;
-import java.time.temporal.ChronoUnit;
 import java.math.BigDecimal;
 
 @Component
@@ -92,11 +86,17 @@ public class RezerwationController {
     }
 
     public String addRezerwation() {
+        newRezerwation.setUser(currentUser);
+        newRezerwation.setMotorcycle(selectedMotorcycle);
             rezerwationService.saveRezerwation(newRezerwation);
             newRezerwation = new Rezerwation();
-            return "add_rezerwation.xhtml?faces-redirect=true";
-        }
+            return "add_rezerwation.xhtml?faces-redirect=true";}
+
+    public List<Rezerwation> getCurrentUserRezerwations() {
+        return rezerwationService.findRezerwationsByUser(currentUser);
+    }
 }
+
 
 
 

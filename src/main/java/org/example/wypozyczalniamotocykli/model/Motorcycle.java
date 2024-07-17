@@ -3,6 +3,8 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
 
 @Data
 @NoArgsConstructor
@@ -22,8 +24,8 @@ public class Motorcycle {
     private int rocznik;
     private BigDecimal cena;
     private String imageLink;
-    @ManyToOne
-    @JoinColumn(name = "rezerwation_id")
-    private Rezerwation rezerwation;
+
+    @OneToMany(mappedBy = "motorcycle", fetch = FetchType.EAGER)
+    private List<Rezerwation> rezerwations = new ArrayList<>();;
 
 }
