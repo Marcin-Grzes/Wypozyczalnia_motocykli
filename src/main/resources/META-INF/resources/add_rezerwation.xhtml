@@ -11,6 +11,7 @@
 
     <ui:define name="content">
         <h:form>
+            <p:growl id="growl" showDetail="true"/>
             <p:panel header="New Rezerwation">
                 <p:messages autoUpdate="true"/>
                 <h:panelGrid columns="4">
@@ -69,8 +70,9 @@
                 <p:outputLabel value="Numer telefonu:" for="phone_number" />
                 <p:inputText id="phone_number" value="#{rezerwationController.currentUser.phone_number}"/>
                 </h:panelGrid>
+                <p:commandButton value="Zarezerwuj" action="#{rezerwationController.addRezerwation}" update="growl"/>
             </p:panel>
-            <p:commandButton value="Zarezerwuj" action="#{rezerwationController.addRezerwation}" update="@form"/>
+
         </h:form>
     </ui:define>
 

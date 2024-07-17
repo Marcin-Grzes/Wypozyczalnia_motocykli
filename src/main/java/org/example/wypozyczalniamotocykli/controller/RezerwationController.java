@@ -1,5 +1,6 @@
 package org.example.wypozyczalniamotocykli.controller;
 
+import jakarta.faces.application.FacesMessage;
 import jakarta.inject.Inject;
 import jakarta.servlet.http.HttpSession;
 import org.example.wypozyczalniamotocykli.model.User_app;
@@ -91,13 +92,17 @@ public class RezerwationController {
         this.totalCost = selectedMotorcycle.getCena().multiply(BigDecimal.valueOf(diffInDays));
         System.out.println("Total cost: " + totalCost);
     }
+    public void addMessage(FacesMessage message) {
+        FacesContext.getCurrentInstance().addMessage(null, message);
+    }
 
-    public String addRezerwation() {
+    public void addRezerwation() {
             newRezerwation.setUser(currentUser);
             newRezerwation.setMotorcycle(selectedMotorcycle);
             rezerwationService.saveRezerwation(newRezerwation);
             newRezerwation = new Rezerwation();
-            return "add_rezerwation.xhtml?faces-redirect=true";
+            System.out.println("Rezerwacja została dodana!");
+            addMessage(new FacesMessage(FacesMessage.SEVERITY_INFO, "Sukces", "Rezerwacja zapisana pomyślnie!"));
         }
 }
 
