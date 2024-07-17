@@ -1,6 +1,7 @@
 package org.example.wypozyczalniamotocykli.service;
 
 import org.example.wypozyczalniamotocykli.model.Rezerwation;
+import org.example.wypozyczalniamotocykli.model.User_app;
 import org.example.wypozyczalniamotocykli.repository.RezerwationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -22,5 +23,9 @@ public class RezerwationService {
 
     public List<Rezerwation> getAllRezerwations() {
         return rezerwationRepository.findAll();
+    }
+
+    public List<Rezerwation> findRezerwationsByUser(User_app user) {
+        return rezerwationRepository.findByUser(user);
     }
 }

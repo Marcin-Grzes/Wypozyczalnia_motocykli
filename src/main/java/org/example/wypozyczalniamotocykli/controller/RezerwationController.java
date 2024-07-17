@@ -20,6 +20,7 @@ import org.springframework.web.context.annotation.RequestScope;
 
 import java.io.Serializable;
 import java.time.temporal.ChronoUnit;
+import java.util.List;
 import java.util.Optional;
 import jakarta.servlet.http.HttpSession;
 import java.time.temporal.ChronoUnit;
@@ -98,6 +99,10 @@ public class RezerwationController {
             newRezerwation = new Rezerwation();
             return "add_rezerwation.xhtml?faces-redirect=true";
         }
+
+    public List<Rezerwation> getCurrentUserRezerwations() {
+        return rezerwationService.findRezerwationsByUser(currentUser);
+    }
 }
 
 
