@@ -99,10 +99,6 @@ public class RezerwationController {
             newRezerwation = new Rezerwation();
             return "add_rezerwation.xhtml?faces-redirect=true";
         }
-
-    public List<Rezerwation> getCurrentUserRezerwations() {
-        return rezerwationService.findRezerwationsByUser(currentUser);
-    }
 }
 
 

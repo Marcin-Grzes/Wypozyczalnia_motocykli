@@ -10,7 +10,7 @@
     </ui:define>
 
     <ui:define name="content">
-        <ui:repeat value="#{rezerwationController.getCurrentUserRezerwations()}" var="rezerwation">
+        <ui:repeat value="#{listRezerwController.getCurrentUserRezerwations()}" var="rezerwation">
             <p>ID Rezerwacji: #{rezerwation.id}</p>
             <p>Marka i model: #{rezerwation.motorcycle.marka} #{rezerwation.motorcycle.model}</p>
             <p>Data rozpoczęcia: #{rezerwation.start_date}</p>

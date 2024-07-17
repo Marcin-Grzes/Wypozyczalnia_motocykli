@@ -20,7 +20,7 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @RequiredArgsConstructor
-@ToString
+
 public class User_app {
 
     @Id
@@ -57,23 +57,3 @@ public class User_app {
     @OneToMany(mappedBy = "user", fetch = FetchType.EAGER)
     private List<Rezerwation> rezerwation = new ArrayList<>();
 }
-
-
-/*
-
-@Data
-@Entity
-public class User_app implements UserDetails {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
-    private String username;
-    private String password;
-    private boolean active;
-    @Enumerated(EnumType.STRING)
-    private Role role;
-    @Override
-    public Collection<? extends GrantedAuthority> getAuthorities() {
-        return Collections.singletonList(new SimpleGrantedAuthority(role.name()));
-    }}*/
