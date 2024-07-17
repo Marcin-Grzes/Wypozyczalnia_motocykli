@@ -6,18 +6,21 @@
       xmlns:p="http://primefaces.org/ui">
 <ui:composition template="templates/layout.xhtml">
     <ui:define name="title">
-        Strona główna
+        Rejestracja
     </ui:define>
 
     <ui:define name="content">
         <h:form id="registrationForm">
             <p:panel header="Rejestracja">
-                <h:panelGrid columns="2">
+                <h:panelGrid columns="2" cellpadding="7">
                     <h:outputLabel for="username" value="Nazwa użytkownika:" />
-                    <p:inputText id="username" value="#{registrationController.user_app.username}" required="true" />
-
+                    <p:inputText id="username" value="#{registrationController.user_app.username}" required="true">
+                    <f:validateLength minimum="2"/>
+                </p:inputText>
                     <h:outputLabel for="password" value="Hasło:" />
-                    <p:password id="password" value="#{registrationController.user_app.password}" required="true" />
+                    <p:password id="password" value="#{registrationController.user_app.password}" required="true">
+                    <f:validateLength minimum="2"/>
+                    </p:password>
 <!--                    <?>-->
                     <p:commandButton value="Zarejestruj" action="#{registrationController.newUser}" update=":registrationForm" />
                 </h:panelGrid>

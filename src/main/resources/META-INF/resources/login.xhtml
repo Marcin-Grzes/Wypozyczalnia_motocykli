@@ -2,11 +2,10 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:p="http://primefaces.org/ui">
 <ui:composition template="templates/layout.xhtml">
     <ui:define name="title">
-        Strona główna
+        Logowanie
     </ui:define>
     <ui:define name="content">
         <div class="card">
@@ -18,7 +17,7 @@
 
                 <h:outputLabel for="password" value="Hasło:" />
                 <p:password id="password" value="#{loginController.user_app.password}" required="true" />
-
+                <!--                    <?>-->
                 <p:commandButton value="Zaloguj" action="#{loginController.loginUser}" update="loginForm"/>
                 </h:panelGrid>
                 <p:messages id="messages" autoUpdate="true" closable="true"/>
