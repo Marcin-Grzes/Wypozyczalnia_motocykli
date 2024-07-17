@@ -17,8 +17,9 @@ public class Rezerwation {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
+
     @ManyToOne
-    @JoinColumn(name = "user_id")
+    @JoinColumn(name = "user_id", nullable = false)
     private User_app user;
 
     @OneToMany(mappedBy = "rezerwation", fetch = FetchType.EAGER)

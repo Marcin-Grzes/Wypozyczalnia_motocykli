@@ -1,5 +1,6 @@
 package org.example.wypozyczalniamotocykli.controller;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.inject.Inject;
 import jakarta.servlet.http.HttpSession;
 import org.example.wypozyczalniamotocykli.model.User_app;
@@ -12,6 +13,7 @@ import lombok.*;
 import org.example.wypozyczalniamotocykli.model.Motorcycle;
 import org.example.wypozyczalniamotocykli.model.Rezerwation;
 import org.example.wypozyczalniamotocykli.service.MotorcycleService;
+import org.example.wypozyczalniamotocykli.service.MyUserService;
 import org.example.wypozyczalniamotocykli.service.RezerwationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
@@ -28,7 +30,8 @@ import java.math.BigDecimal;
 @Component
 @Scope("session")
 @AllArgsConstructor
-@Getter @Setter
+@Getter(AccessLevel.NONE)
+@Setter
 public class RezerwationController {
     private final RezerwationService rezerwationService;
     private final MotorcycleService motorcycleService;
@@ -38,14 +41,19 @@ public class RezerwationController {
     private User_app currentUser;
     private final HttpSession httpSession;
     private BigDecimal totalCost;
+    private final MyUserService myUserService;
 
     @Autowired
-    public RezerwationController(RezerwationService rezerwationService, MotorcycleService motorcycleService, HttpSession httpSession ) {
+    public RezerwationController(RezerwationService rezerwationService,
+                                 MotorcycleService motorcycleService,
+                                 HttpSession httpSession,
+                                 MyUserService myUserService) {
         this.rezerwationService = rezerwationService;
         this.motorcycleService = motorcycleService;
         this.httpSession = httpSession;
+        this.myUserService = myUserService;
     }
-
+    @JsonIgnore
     @PostConstruct
     public String rezerwation() {
         FacesContext facesContext = FacesContext.getCurrentInstance();
@@ -66,7 +74,9 @@ public class RezerwationController {
         System.out.println(selectedMotorcycle);
 
         User_app currentUser = (User_app) httpSession.getAttribute("user");
+        currentUser = myUserService.findById(currentUser.getId()).orElse(null);
         this.currentUser = currentUser;
+
         // load data on page start
         System.out.println("User object loaded from database: " + currentUser);
 
@@ -92,6 +102,7 @@ public class RezerwationController {
     }
 
     public String addRezerwation() {
+            newRezerwation.setUser(currentUser);
             rezerwationService.saveRezerwation(newRezerwation);
             newRezerwation = new Rezerwation();
             return "add_rezerwation.xhtml?faces-redirect=true";

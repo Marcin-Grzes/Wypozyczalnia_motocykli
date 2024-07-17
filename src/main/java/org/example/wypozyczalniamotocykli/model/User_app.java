@@ -1,5 +1,6 @@
 package org.example.wypozyczalniamotocykli.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -53,9 +54,11 @@ public class User_app {
     private String number_identity_card;
 
     private Integer PESEL;
-
-    @OneToMany(mappedBy = "user", fetch = FetchType.EAGER)
-    private List<Rezerwation> rezerwation = new ArrayList<>();
+    @JsonIgnore
+    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
+    public List<Rezerwation> getRezerwation() {
+        return this.rezerwation;
+    }
 }
 
 

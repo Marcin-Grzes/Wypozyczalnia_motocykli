@@ -40,6 +40,12 @@ public class MyUserService {
     public Optional<User_app> findByUsername(String username) {
         return userRepository.findByUsername(username);
     }
+
+    public Optional <User_app> findById(int id) {
+        Optional<User_app> user = userRepository.findById(id);
+        user.ifPresent(u -> u.getRezerwation().size()); // Initialize reservation collection inside the transaction
+        return user;
+    }
     public void updateUser(User_app user) {
         // Fetch the user from the database
 
