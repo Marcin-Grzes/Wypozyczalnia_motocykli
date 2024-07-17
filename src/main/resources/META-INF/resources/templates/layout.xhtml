@@ -12,16 +12,24 @@
         </h:head>
 
 <h:body>
-
     <div id="header">
         <h:form>
             <p:breadCrumb>
-                <p:menuitem value="Electronics"/>
-                <p:menuitem value="Computer"/>
-                <p:menuitem value="Notebook"/>
-                <p:menuitem value="Accessories"/>
-                <p:menuitem value="Backpacks"/>
-                <p:menuitem value="Item"/>
+                <p:menuitem value="Strona główna" url="home.xhtml"/>
+                <p:menuitem rendered="#{logoutController.loggedIn}"
+                            value="Wyloguj"
+                            action="#{logoutController.logout()}"/>
+                <p:menuitem rendered="#{!logoutController.loggedIn}"
+                            value="Zaloguj się"
+                            url="/login.xhtml"/>
+                <p:menuitem rendered="#{!logoutController.loggedIn}"
+                            value="Rejestracja"
+                            url="register.xhtml"/>
+                <p:menuitem rendered="#{logoutController.loggedIn}"
+                            value="Modyfikacja użytkownika"
+                            url="modify_user.xhtml"/>
+                <p:menuitem value="Dodaj motocykl" url="add_motorcycle.xhtml"/>
+                <p:menuitem value="Dodaj rezerwację" url="add_rezerwation.xhtml"/>
             </p:breadCrumb>
         </h:form>
         <!-- Tutaj umieszczamy nasze menu, logo itp. -->

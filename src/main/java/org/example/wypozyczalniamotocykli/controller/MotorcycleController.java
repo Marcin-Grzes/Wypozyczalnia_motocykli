@@ -38,24 +38,22 @@ public class MotorcycleController implements Serializable {
     private Motorcycle newMotorcycle = new Motorcycle();
 
 
-    @GetMapping("motorcycles")
+
     public List<Motorcycle> getMotorcycles() {
         return motorcycleService.getAllMotorcycles();
     }
 
-    @PostMapping("/motorcycles")
     public void addMotorcycle() {
         motorcycleService.saveMotorcycle(newMotorcycle);
         newMotorcycle = new Motorcycle();
     }
 
-    @PutMapping("/motorcycles/{id}")
     public Motorcycle updateMotorcycle(@PathVariable(value = "id") Long motorcycleId,
                                        @Valid @RequestBody Motorcycle motorcycleDetails) {
         return motorcycleService.updateMotorcycle(motorcycleId, motorcycleDetails);
     }
 
-    @DeleteMapping("/motorcycles/{id}")
+
     public ResponseEntity<?> deleteMotorcycle(@PathVariable(value = "id") Long motorcycleId) {
         return motorcycleService.deleteMotorcycle(motorcycleId);
     }
@@ -70,7 +68,8 @@ public class MotorcycleController implements Serializable {
         FacesContext.getCurrentInstance()
                 .addMessage(null,
                         new FacesMessage(FacesMessage.SEVERITY_INFO, clientId + " multiview state has been cleared out", null));
-}}
+}
+}
 
 
 /*

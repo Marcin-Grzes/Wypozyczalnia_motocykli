@@ -13,34 +13,64 @@
         <h:form>
             <p:panel header="New Rezerwation">
                 <p:messages autoUpdate="true"/>
-                <h:panelGrid columns="2">
+                <h:panelGrid columns="4">
                     <h:outputLabel for="marka" value="Marka"/>
-                    <p:inputText id="marka" value="#{rezerwationController.newRezerwation.motorcycle.marka}"/>
+                    <p:inputText id="marka" value="#{rezerwationController.selectedMotorcycle.marka}"/>
 
                     <h:outputLabel for="model" value="Model"/>
-                    <p:inputText id="model" value="#{rezerwationController.newRezerwation.motorcycle.model}"/>
+                    <p:inputText id="model" value="#{rezerwationController.selectedMotorcycle.model}"/>
 
                     <h:outputLabel for="kolor" value="Kolor"/>
-                    <p:inputText id="kolor" value="#{motorcycleController.newMotorcycle.kolor}"/>
+                    <p:inputText id="kolor" value="#{rezerwationController.selectedMotorcycle.kolor}"/>
 
                     <h:outputLabel for="pojemnosc" value="Pojemność motocykla"/>
-                    <p:inputText id="pojemnosc" value="#{motorcycleController.newMotorcycle.pojemnosc}"/>
+                    <p:inputText id="pojemnosc" value="#{rezerwationController.selectedMotorcycle.pojemnosc}"/>
 
                     <h:outputLabel for="moc" value="Moc"/>
-                    <p:inputText id="moc" value="#{motorcycleController.newMotorcycle.moc}"/>
+                    <p:inputText id="moc" value="#{rezerwationController.selectedMotorcycle.moc}"/>
 
                     <h:outputLabel for="rocznik" value="Rok produkcji"/>
-                    <p:inputText id="rocznik" value="#{motorcycleController.newMotorcycle.rocznik}"/>
+                    <p:inputText id="rocznik" value="#{rezerwationController.selectedMotorcycle.rocznik}"/>
 
                     <h:outputLabel for="cena" value="Cena za dobę"/>
-                    <p:inputText id="cena" value="#{motorcycleController.newMotorcycle.cena}"/>
+                    <p:inputText id="cena" value="#{rezerwationController.selectedMotorcycle.cena}"/>
 
-                    <h:outputLabel for="imageLink" value="Image Link"/>
-                    <p:inputText id="imageLink" value="#{motorcycleController.newMotorcycle.imageLink}"/>
+                    <h:outputLabel for="data_od" value="Data od"/>
+                    <p:calendar id="data_od" value="#{rezerwationController.newRezerwation.start_date}"/>
 
-                    <p:commandButton action="#{motorcycleController.addMotorcycle}" value="Submit"/>
+                    <h:outputLabel for="data_do" value="Data do"/>
+                    <p:calendar id="data_do" value="#{rezerwationController.newRezerwation.end_date}"/>
+
+                    <h:outputLabel for="total_cost" value="Łączna cena"/>
+                    <p:inputText id="total_cost" value="#{rezerwationController.totalCost}" readonly="true"/>
+
+                    <p:commandButton value="Policz całkowitą cenę za rezerwację" action="#{rezerwationController.calculateTotalCost}" update="@form"/>
+
+                </h:panelGrid>
+                <h:panelGrid columns="4">
+                <h:outputLabel for="username" value="Nazwa użytkownika"/>
+                <p:inputText id="username" value="#{rezerwationController.currentUser.username}"/>
+
+                <p:outputLabel value="Ulica:" for="street" />
+                <p:inputText id="street" value="#{rezerwationController.currentUser.street}"/>
+
+                <p:outputLabel value="Numer domu:" for="number_house" />
+                <p:inputText id="number_house" value="#{rezerwationController.currentUser.number_house}"/>
+
+                <p:outputLabel value="Numer mieszkania:" for="number_flat" />
+                <p:inputText id="number_flat" value="#{rezerwationController.currentUser.number_flat}"/>
+
+                <p:outputLabel value="Kod pocztowy:" for="postal_code" />
+                <p:inputText id="postal_code" value="#{rezerwationController.currentUser.postal_code}"/>
+
+                <p:outputLabel value="Miejscowość:" for="city" />
+                <p:inputText id="city" value="#{rezerwationController.currentUser.city}"/>
+
+                <p:outputLabel value="Numer telefonu:" for="phone_number" />
+                <p:inputText id="phone_number" value="#{rezerwationController.currentUser.phone_number}"/>
                 </h:panelGrid>
             </p:panel>
+            <p:commandButton value="Zarezerwuj" action="#{rezerwationController.addRezerwation}" update="@form"/>
         </h:form>
     </ui:define>
 

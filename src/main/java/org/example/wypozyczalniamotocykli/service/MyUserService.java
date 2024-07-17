@@ -40,6 +40,28 @@ public class MyUserService {
     public Optional<User_app> findByUsername(String username) {
         return userRepository.findByUsername(username);
     }
+    public void updateUser(User_app user) {
+        // Fetch the user from the database
+
+        Optional<User_app> userFromDb = userRepository.findById(user.getId());
+
+        if(userFromDb.isPresent()) {
+            User_app updateUser = userFromDb.get();
+            // Set the new values
+            updateUser.setUsername(user.getUsername());
+            updateUser.setPassword(user.getPassword());
+            updateUser.setStreet(user.getStreet());
+            updateUser.setNumber_house(user.getNumber_house());
+            updateUser.setNumber_flat(user.getNumber_flat());
+            updateUser.setPostal_code(user.getPostal_code());
+            updateUser.setCity(user.getCity());
+            updateUser.setPhone_number(user.getPhone_number());
+
+
+            // Perform the database update
+            userRepository.save(updateUser);
+        }
+    }
 }
 /*
 

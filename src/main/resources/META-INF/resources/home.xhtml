@@ -33,20 +33,22 @@
                 <div class="product-description">#{motorcycle.kolor}</div>
                 <div class="product-description">#{motorcycle.pojemnosc}</div>
                 <div class="product-description">#{motorcycle.moc}</div>
+                <div class="product-description">#{motorcycle.id}</div>
             </div>
             <div class="product-grid-item-bottom">
                 <h:outputText value="#{motorcycle.cena}" styleClass="product-price">
                     <f:convertNumber currencySymbol="PLN" type="currency"/>
                 </h:outputText>
-                <p:commandButton type="button"
+                <h:commandLink   action="#{rezerwationController.rezerwation}"
                                  value="Zarezerwuj"
-                                 icon="pi pi-shopping-cart"
-                                 disabled="#{motorcycle.status == 'UNAVAILABLE'}">
-                </p:commandButton>
+                                 icon="pi pi-shopping-cart">
+<!--                                 disabled="#{motorcycle.status == 'UNAVAILABLE'}">-->
+                    <f:param name="selectedMotorcycleId" value="#{motorcycle.id}" />
+                </h:commandLink>
             </div>
         </div>
         </p:dataViewGridItem>
-            <p:dataViewListItem>
+            <!--<p:dataViewListItem>
                 <div class="product-list-item">
                     <p:graphicImage name="#{motorcycle.imageLink}" library="images_bike" style="width:200px; height:auto;"/>
                     <div class="product-list-detail">
@@ -65,10 +67,10 @@
                                          icon="pi pi-shopping-cart"
                                          disabled="#{motorcycle.status == 'UNAVAILABLE'}">
                         </p:commandButton>
-<!--                        <span class="product-badge status-#{product.inventoryStatus.name().toLowerCase()}">#{product.inventoryStatus.text}</span>-->
+&lt;!&ndash;                        <span class="product-badge status-#{product.inventoryStatus.name().toLowerCase()}">#{product.inventoryStatus.text}</span>&ndash;&gt;
                     </div>
                 </div>
-            </p:dataViewListItem>
+            </p:dataViewListItem>-->
         </p:dataView>
         </h:form>
         </div>

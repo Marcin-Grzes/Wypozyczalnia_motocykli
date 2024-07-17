@@ -10,7 +10,19 @@
     </ui:define>
 
     <ui:define name="content">
-        <!-- Tutaj umieszczamy zawartość konkretnej strony -->
+        <p:dataView value="#{motorcycleController.motorcycles}" var="motorcycle" layout="grid" rows="12">
+            <p:dataViewGridItem>
+                <p:graphicImage value="#{motorcycle.imageLink}" style="width:150px;height:100px"/>
+            </p:dataViewGridItem>
+            <p:dataViewGridItem>
+                <h:outputText value="Marka: #{motorcycle.marka}" />
+                <h:outputText value="Model: #{motorcycle.model}" />
+                <h:outputText value="Kolor: #{motorcycle.kolor}" />
+                <h:outputText value="Pojemność: #{motorcycle.pojemnosc}" />
+                <h:outputText value="Rocznik: #{motorcycle.rocznik}" />
+                <h:outputText value="Cena za wypożyczenie za dobę: #{motorcycle.cena}" />
+            </p:dataViewGridItem>
+        </p:dataView>
 </ui:define>
 
         </ui:composition>

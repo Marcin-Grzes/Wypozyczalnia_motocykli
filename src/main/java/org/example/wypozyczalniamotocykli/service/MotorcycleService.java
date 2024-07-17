@@ -26,6 +26,10 @@ public class MotorcycleService {
         return motorcycleRepository.findAll();
     }
 
+    public Optional<Motorcycle> findMotorcycleById(Long id) {
+        return motorcycleRepository.findById(id);
+    }
+
     public Motorcycle updateMotorcycle(Long id, Motorcycle motorcycleDetails) {
         Optional<Motorcycle> motorcycleOptional = motorcycleRepository.findById(id);
         if (motorcycleOptional.isPresent()){
