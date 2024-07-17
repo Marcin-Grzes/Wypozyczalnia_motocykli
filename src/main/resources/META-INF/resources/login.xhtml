@@ -8,19 +8,23 @@
     <ui:define name="title">
         Strona główna
     </ui:define>
-
     <ui:define name="content">
+        <div class="card">
         <h:form id="loginForm">
             <p:panel header="Logowanie">
-            <h:panelGrid columns="2">
-            <h:inputText title="Username" value="#{loginController.user_app.username}" />
-            <h:inputSecret title="Password" value="#{loginController.user_app.password}" />
-            <p:commandButton value="Log in" action="#{loginController.loginUser}" update="loginForm"/>
-<!--                <p:growl id="growl" showDetail="true"/>-->
+            <h:panelGrid columns="2" id="grid" cellpadding="7">
+                <h:outputLabel for="username" value="Nazwa użytkownika:" />
+                <p:inputText id="username" value="#{loginController.user_app.username}" required="true" />
+
+                <h:outputLabel for="password" value="Hasło:" />
+                <p:password id="password" value="#{loginController.user_app.password}" required="true" />
+
+                <p:commandButton value="Zaloguj" action="#{loginController.loginUser}" update="loginForm"/>
                 </h:panelGrid>
                 <p:messages id="messages" autoUpdate="true" closable="true"/>
             </p:panel>
         </h:form>
+        </div>
     </ui:define>
 </ui:composition>
 </html>
