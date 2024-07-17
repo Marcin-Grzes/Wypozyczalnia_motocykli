@@ -12,36 +12,36 @@
     <ui:define name="content">
         <h:form>
             <p:messages autoUpdate="true" closable="true" />
-
-            <p:panelGrid columns="2">
-                <p:outputLabel value="Nazwa użytkownika:" for="username" />
+            <p:panel header="Zmiana danych użytkownika">
+            <h:panelGrid columns="2" cellpadding="7">
+                <h:outputLabel value="Nazwa użytkownika:" for="username" />
                 <p:inputText id="username" value="#{modifyController.currentUser.username}"/>
 
-                <p:outputLabel value="Hasło:" for="password" />
+                <h:outputLabel value="Hasło:" for="password" />
                 <p:password id="password" value="#{modifyController.currentUser.password}"/>
 
-                <p:outputLabel value="Ulica:" for="street" />
+                <h:outputLabel value="Ulica:" for="street" />
                 <p:inputText id="street" value="#{modifyController.currentUser.street}"/>
 
-                <p:outputLabel value="Numer domu:" for="number_house" />
+                <h:outputLabel value="Numer domu:" for="number_house" />
                 <p:inputText id="number_house" value="#{modifyController.currentUser.number_house}"/>
 
-                <p:outputLabel value="Numer mieszkania:" for="number_flat" />
-                <p:inputText id="number_flat" value="#{modifyController.currentUser.number_flat}"/>
+                <h:outputLabel value="Numer mieszkania:" for="number_flat" />
+                <p:inputNumber id="number_flat" value="#{modifyController.currentUser.number_flat}"/>
 
-                <p:outputLabel value="Kod pocztowy:" for="postal_code" />
+                <h:outputLabel value="Kod pocztowy:" for="postal_code" />
                 <p:inputText id="postal_code" value="#{modifyController.currentUser.postal_code}"/>
 
-                <p:outputLabel value="Miejscowość:" for="city" />
+                <h:outputLabel value="Miejscowość:" for="city" />
                 <p:inputText id="city" value="#{modifyController.currentUser.city}"/>
 
-                <p:outputLabel value="Numer telefonu:" for="phone_number" />
-                <p:inputText id="phone_number" value="#{modifyController.currentUser.phone_number}"/>
+                <h:outputLabel value="Numer telefonu:" for="phone_number" />
+                <p:inputNumber id="phone_number" value="#{modifyController.currentUser.phone_number}"/>
 
-                <!-- Dodaj tutaj pola dla innych właściwości -->
-            </p:panelGrid>
+            </h:panelGrid>
+                <p:commandButton value="Zapisz" action="#{modifyController.save}" update="@form" style="width: 150px;"/>
+            </p:panel>
 
-            <p:commandButton value="Save" action="#{modifyController.save}" update="@form" />
         </h:form>
     </ui:define>
 </ui:composition>

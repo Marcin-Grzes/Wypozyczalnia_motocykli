@@ -14,41 +14,41 @@
             <p:growl id="growl" showDetail="true"/>
             <p:panel header="New Rezerwation">
                 <p:messages autoUpdate="true"/>
-                <h:panelGrid columns="4">
-                    <h:outputLabel for="marka" value="Marka"/>
-                    <p:inputText id="marka" value="#{rezerwationController.selectedMotorcycle.marka}"/>
+                <h:panelGrid columns="2" cellpadding="7">
+                    <h:outputLabel for="marka" value="Marka:"/>
+                    <p:outputLabel id="marka" value="#{rezerwationController.selectedMotorcycle.marka}"/>
 
-                    <h:outputLabel for="model" value="Model"/>
-                    <p:inputText id="model" value="#{rezerwationController.selectedMotorcycle.model}"/>
+                    <h:outputLabel for="model" value="Model:"/>
+                    <p:outputLabel id="model" value="#{rezerwationController.selectedMotorcycle.model}"/>
 
-                    <h:outputLabel for="kolor" value="Kolor"/>
-                    <p:inputText id="kolor" value="#{rezerwationController.selectedMotorcycle.kolor}"/>
+                    <h:outputLabel for="kolor" value="Kolor: "/>
+                    <p:outputLabel id="kolor" value="#{rezerwationController.selectedMotorcycle.kolor}"/>
 
                     <h:outputLabel for="pojemnosc" value="Pojemność motocykla"/>
-                    <p:inputText id="pojemnosc" value="#{rezerwationController.selectedMotorcycle.pojemnosc}"/>
+                    <p:outputLabel id="pojemnosc" value="#{rezerwationController.selectedMotorcycle.pojemnosc} cm3"/>
 
                     <h:outputLabel for="moc" value="Moc"/>
-                    <p:inputText id="moc" value="#{rezerwationController.selectedMotorcycle.moc}"/>
+                    <p:outputLabel id="moc" value="#{rezerwationController.selectedMotorcycle.moc} KM"/>
 
                     <h:outputLabel for="rocznik" value="Rok produkcji"/>
-                    <p:inputText id="rocznik" value="#{rezerwationController.selectedMotorcycle.rocznik}"/>
+                    <p:outputLabel id="rocznik" value="#{rezerwationController.selectedMotorcycle.rocznik}"/>
 
                     <h:outputLabel for="cena" value="Cena za dobę"/>
-                    <p:inputText id="cena" value="#{rezerwationController.selectedMotorcycle.cena}"/>
+                    <p:outputLabel id="cena" value="#{rezerwationController.selectedMotorcycle.cena} PLN"/>
 
-                    <h:outputLabel for="data_od" value="Data od"/>
+                    <h:outputLabel for="data_od" value="Data rozpoczęcia wypożyczenia"/>
                     <p:calendar id="data_od" value="#{rezerwationController.newRezerwation.start_date}"/>
 
-                    <h:outputLabel for="data_do" value="Data do"/>
+                    <h:outputLabel for="data_do" value="Data zakończenia wypożyczenia"/>
                     <p:calendar id="data_do" value="#{rezerwationController.newRezerwation.end_date}"/>
 
                     <h:outputLabel for="total_cost" value="Łączna cena"/>
-                    <p:inputText id="total_cost" value="#{rezerwationController.totalCost}" readonly="true"/>
+                    <p:inputText id="total_cost" value="#{rezerwationController.totalCost} PLN" readonly="true"/>
 
-                    <p:commandButton value="Policz całkowitą cenę za rezerwację" action="#{rezerwationController.calculateTotalCost}" update="@form"/>
+                    <p:button icon="pi pi-search" styleClass="rounded-button ui-button-info" value="Policz całkowitą cenę za wypożyczenie" action="#{rezerwationController.calculateTotalCost}" update="@form"/>
 
                 </h:panelGrid>
-                <h:panelGrid columns="4">
+                <h:panelGrid columns="2" cellpadding="7">
                 <h:outputLabel for="username" value="Nazwa użytkownika"/>
                 <p:inputText id="username" value="#{rezerwationController.currentUser.username}"/>
 
@@ -70,7 +70,7 @@
                 <p:outputLabel value="Numer telefonu:" for="phone_number" />
                 <p:inputText id="phone_number" value="#{rezerwationController.currentUser.phone_number}"/>
                 </h:panelGrid>
-                <p:commandButton value="Zarezerwuj" action="#{rezerwationController.addRezerwation}" update="growl"/>
+                <p:button styleClass="ui-button-help" value="Zarezerwuj" action="#{rezerwationController.addRezerwation}" update="growl"/>
             </p:panel>
 
         </h:form>
