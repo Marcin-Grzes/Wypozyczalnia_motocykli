@@ -92,6 +92,8 @@ public class RezerwationController {
     }
 
     public String addRezerwation() {
+            newRezerwation.setUser(currentUser);
+            newRezerwation.setMotorcycle(selectedMotorcycle);
             rezerwationService.saveRezerwation(newRezerwation);
             newRezerwation = new Rezerwation();
             return "add_rezerwation.xhtml?faces-redirect=true";
