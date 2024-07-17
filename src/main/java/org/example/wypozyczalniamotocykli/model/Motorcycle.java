@@ -26,7 +26,8 @@ public class Motorcycle {
     private BigDecimal cena;
     private String imageLink;
 
-    @OneToMany(mappedBy = "motorcycle")
+    @OneToMany(mappedBy = "motorcycle", cascade = CascadeType.ALL, orphanRemoval = true)
+    @ToString.Exclude
     private List<Rezerwation> rezerwations_motorcycle = new ArrayList<>();
 
 }
