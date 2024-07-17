@@ -6,9 +6,10 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
-@Data
-@NoArgsConstructor
 @Entity
+@Data
+@AllArgsConstructor
+@RequiredArgsConstructor
 public class Motorcycle {
     @Id
     @GeneratedValue(strategy = GenerationType.TABLE, generator = "motorcycle_gen")

@@ -101,8 +101,6 @@ public class RezerwationController {
         }
 }
 
-
-
 //        System.out.println("Metoda addRezerwation() została wywołana!");
 //        System.out.println("selectedMotorcycleId: " + selectedMotorcycleId);
 /* Long selectedMotorcycleId = (Long) FacesContext

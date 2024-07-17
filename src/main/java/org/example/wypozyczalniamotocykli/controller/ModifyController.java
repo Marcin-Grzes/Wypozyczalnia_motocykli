@@ -40,14 +40,3 @@ public class ModifyController  {
         myUserService.updateUser(currentUser);
     }
 }
-
-
-/*
-@PostConstruct
-public void init() {
-    username = FacesContext.getCurrentInstance().getExternalContext().getRemoteUser();
-    System.out.println("Username obtained from FacesContext: " + username);
-    // load data on page start
-    userService.findByUsername(username).ifPresent(currentUser -> this.currentUser = currentUser);
-    System.out.println("User object loaded from database: " + currentUser);
-}*/

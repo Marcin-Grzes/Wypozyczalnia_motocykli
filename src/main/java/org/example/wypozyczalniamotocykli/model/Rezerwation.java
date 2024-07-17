@@ -8,14 +8,16 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
-@Data
-@NoArgsConstructor
 @Entity
+@Data
+
+@RequiredArgsConstructor
 public class Rezerwation {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+
 
     @ManyToOne
     @JoinColumn(name = "user_id")
