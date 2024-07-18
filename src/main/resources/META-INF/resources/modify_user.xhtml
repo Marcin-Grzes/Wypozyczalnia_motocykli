@@ -37,9 +37,9 @@
 
                 <h:outputLabel value="Numer telefonu:" for="phone_number" />
                 <p:inputNumber id="phone_number" value="#{modifyController.currentUser.phone_number}"/>
-
-            </h:panelGrid>
                 <p:commandButton value="Zapisz" action="#{modifyController.save}" update="@form" style="width: 150px;"/>
+            </h:panelGrid>
+                <p:button value="Wróć do strony głównej" outcome="/home.xhtml" style="width: 250px;"/>
             </p:panel>
 
         </h:form>

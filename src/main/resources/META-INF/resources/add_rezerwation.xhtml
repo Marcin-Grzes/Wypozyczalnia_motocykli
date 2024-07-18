@@ -71,7 +71,7 @@
                 <p:inputText id="phone_number" value="#{rezerwationController.currentUser.phone_number}"/>
                     <p:commandButton icon="pi pi-check" styleClass="rounded-button ui-button-success" value="Zarezerwuj" action="#{rezerwationController.addRezerwation}" update="growl" style="width: 350px;"/>
                 </h:panelGrid>
-
+                <p:button value="Wróć do strony głównej" outcome="/home.xhtml" style="width: 350px; margin-left: 7px;"/>
             </p:panel>
 
         </h:form>
