@@ -43,13 +43,14 @@
                     <p:calendar id="data_do" value="#{rezerwationController.newRezerwation.end_date}"/>
 
                     <h:outputLabel for="total_cost" value="Łączna cena:"/>
-                    <p:inputText id="total_cost" value="#{rezerwationController.totalCost} PLN"/>
+                    <p:inputText id="total_cost" value="#{rezerwationController.totalCost} PLN" readonly="true"/>
+                    <p:commandButton icon="pi pi-search" styleClass="rounded-button ui-button-info" value="Policz całkowitą cenę za wypożyczenie" action="#{rezerwationController.calculateTotalCost}" update="@form" style="width: 350px;"/>
                 </h:panelGrid>
-                <p:button icon="pi pi-search" styleClass="rounded-button ui-button-info" value="Policz całkowitą cenę za wypożyczenie" action="#{rezerwationController.calculateTotalCost}" update="form" style="width: 350px;"/>
+
 
                 <!---->
                 <h:panelGrid columns="2" cellpadding="7">
-                <h:outputLabel for="username" value="Nazwa użytkownika"/>
+                <h:outputLabel for="username" value="Nazwa użytkownika:"/>
                 <p:inputText id="username" value="#{rezerwationController.currentUser.username}"/>
 
                 <h:outputLabel value="Ulica:" for="street" />
@@ -69,8 +70,9 @@
 
                 <h:outputLabel value="Numer telefonu:" for="phone_number" />
                 <p:inputText id="phone_number" value="#{rezerwationController.currentUser.phone_number}"/>
+                    <p:commandButton icon="pi pi-check" styleClass="rounded-button ui-button-success" value="Zarezerwuj" action="#{rezerwationController.addRezerwation}" update="growl" style="width: 350px;"/>
                 </h:panelGrid>
-                <p:button icon="pi pi-check" styleClass="rounded-button ui-button-success" value="Zarezerwuj" action="#{rezerwationController.addRezerwation}" update="growl" style="width: 350px;"/>
+
             </p:panel>
 
         </h:form>
