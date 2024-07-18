@@ -36,11 +36,9 @@ public class RegistrationController implements Serializable {
     @Setter
     private User_app user_app = new User_app();
 
-
     public String registration() {
         return "/register";
     }
-
 
     public String newUser() {
         Optional<User_app> existingUser = myUserService.findByUsername(user_app.getUsername());
@@ -52,4 +50,6 @@ public class RegistrationController implements Serializable {
             myUserService.saveUser_app(user_app);
             return "login?faces-redirect=true";
     }}
+
+
 }

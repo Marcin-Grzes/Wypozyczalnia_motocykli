@@ -18,7 +18,10 @@
                     <f:validateLength minimum="2"/>
                 </p:inputText>
                     <h:outputLabel for="password" value="Hasło:" />
-                    <p:password id="password" value="#{registrationController.user_app.password}" required="true">
+
+                    <p:password id="password"
+                                value="#{registrationController.user_app.password}"
+                                required="true">
                     <f:validateLength minimum="2"/>
                     </p:password>
 <!--                    <?>-->
