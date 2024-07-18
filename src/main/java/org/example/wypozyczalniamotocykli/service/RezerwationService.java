@@ -21,10 +21,6 @@ public class RezerwationService {
         rezerwationRepository.save(rezerwation);
     }
 
-    public List<Rezerwation> getAllRezerwations() {
-        return rezerwationRepository.findAll();
-    }
-
     public List<Rezerwation> findRezerwationsByUser(User_app user) {
         return rezerwationRepository.findByUser(user);
     }

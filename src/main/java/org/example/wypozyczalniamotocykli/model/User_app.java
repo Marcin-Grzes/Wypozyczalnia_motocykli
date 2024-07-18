@@ -2,17 +2,7 @@ package org.example.wypozyczalniamotocykli.model;
 
 import jakarta.persistence.*;
 import lombok.*;
-
 import java.util.ArrayList;
-import java.util.Collection;
-
-/*
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
-import org.springframework.security.core.userdetails.UserDetails;
-*/
-
-import java.util.Collections;
 import java.util.List;
 
 @Entity
@@ -55,6 +45,6 @@ public class User_app {
     private Integer PESEL;
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
-    @ToString.Exclude // Wykluczanie pola z metody toString()
+    @ToString.Exclude
     private List<Rezerwation> rezerwation = new ArrayList<>();
 }
