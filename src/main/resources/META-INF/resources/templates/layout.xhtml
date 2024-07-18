@@ -15,7 +15,7 @@
     <div id="header">
         <h:form>
             <p:breadCrumb>
-                <p:menuitem value="Strona główna" url="home.xhtml"/>
+                <p:menuitem value="Strona główna" url="home.xhtml" icon="pi pi-fw pi-home"/>
                 <p:menuitem rendered="#{logoutController.loggedIn}"
                             value="Wyloguj"
                             action="#{logoutController.logout()}"/>
@@ -26,11 +26,13 @@
                             value="Rejestracja"
                             url="register.xhtml"/>
                 <p:menuitem rendered="#{logoutController.loggedIn}"
-                            value="Modyfikacja użytkownika"
+                            value="Twoje konto"
                             url="modify_user.xhtml"/>
                 <p:menuitem value="Dodaj motocykl" url="add_motorcycle.xhtml"/>
                 <p:menuitem value="Dodaj rezerwację" url="add_rezerwation.xhtml"/>
-                <p:menuitem value="Lista rezerwacji" url="list_rezerw.xhtml"/>
+                <p:menuitem rendered="#{logoutController.loggedIn}"
+                            value="Lista rezerwacji"
+                            url="list_rezerw.xhtml"/>
             </p:breadCrumb>
         </h:form>
         <!-- Tutaj umieszczamy nasze menu, logo itp. -->
