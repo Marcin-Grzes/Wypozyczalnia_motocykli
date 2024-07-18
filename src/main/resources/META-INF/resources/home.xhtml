@@ -4,105 +4,35 @@
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:p="http://primefaces.org/ui">
-<ui:composition template="templates/layout.xhtml">
+<ui:composition template="./templates/layout.xhtml">
     <ui:define name="title">
-        Strona główna
+        Page 1 Title
     </ui:define>
 
     <ui:define name="content">
-
-        <div class="product card">
-        <h:form id="form">
-        <p:dataView var="motorcycle" value="#{motorcycleController.motorcycles}"
-
-                    rows="12" paginator="true"
-                    paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}"
-                    gridIcon="pi pi-th-large" listIcon="pi pi-bars"
-                    layout="grid" gridRowStyleClass="lg:col-6 xl:col-4" flex="true">
-
-        <p:dataViewGridItem>
-        <div class="product-grid-item card border-1">
-<!--        <div class="product-grid-item-top">-->
-<!--            <span class="product-badge status-#{product.inventoryStatus.name().toLowerCase()}">#{product.inventoryStatus.text}</span>-->
-<!--            <span class="product-badge status-#{motorcycle.status.name().toLowerCase()}">#{motorcycle.status}</span>-->
-<!--        </div>-->
-            <div class="product-grid-item-content">
-                <p:graphicImage name="#{motorcycle.imageLink}" library="images_bike" style="width:200px; height:auto;"/>
-                <div class="product-name">#{motorcycle.marka}</div>
-                <div class="product-name">#{motorcycle.model}</div>
-                <div class="product-description">#{motorcycle.kolor}</div>
-                <div class="product-description">#{motorcycle.pojemnosc}</div>
-                <div class="product-description">#{motorcycle.moc}</div>
-                <div class="product-description">#{motorcycle.id}</div>
-            </div>
-            <div class="product-grid-item-bottom">
-                <h:outputText value="#{motorcycle.cena}" styleClass="product-price">
-                    <f:convertNumber currencySymbol="PLN" type="currency"/>
-                </h:outputText>
-                <h:commandLink   action="#{rezerwationController.rezerwation}"
-                                 value="Zarezerwuj"
-                                 icon="pi pi-shopping-cart">
-<!--                                 disabled="#{motorcycle.status == 'UNAVAILABLE'}">-->
-                    <f:param name="selectedMotorcycleId" value="#{motorcycle.id}" />
-                </h:commandLink>
-            </div>
-        </div>
-        </p:dataViewGridItem>
-            <!--<p:dataViewListItem>
-                <div class="product-list-item">
-                    <p:graphicImage name="#{motorcycle.imageLink}" library="images_bike" style="width:200px; height:auto;"/>
-                    <div class="product-list-detail">
-                        <div class="product-name">#{motorcycle.marka}</div>
-                        <div class="product-name">#{motorcycle.model}</div>
-                        <div class="product-description">#{motorcycle.kolor}</div>
-                        <div class="product-description">#{motorcycle.pojemnosc}</div>
-                        <div class="product-description">#{motorcycle.moc}</div>
-                    </div>
-                    <div class="product-list-action">
-                        <h:outputText value="#{motorcycle.cena}" styleClass="product-price">
-                            <f:convertNumber currencySymbol="PLN" type="currency"/>
-                        </h:outputText>
-                        <p:commandButton type="button"
-                                         value="Add To Cart"
-                                         icon="pi pi-shopping-cart"
-                                         disabled="#{motorcycle.status == 'UNAVAILABLE'}">
+        <h1>Wypożyczalnia motocykli</h1>
+        <ui:repeat value="#{motorcycleController.motorcycles}" var="motorcycle">
+            <p:panel header="#{motorcycle.marka} #{motorcycle.model}">
+                <h:panelGrid columns="2" cellpadding="10">
+                    <h:graphicImage name="#{motorcycle.imageLink}" library="images_bike" width="600" height="400"/>
+                    <h:panelGrid columns="1" cellpadding="10">
+                        <h:outputText value="Marka: #{motorcycle.marka}"/>
+                        <h:outputText value="Model: #{motorcycle.model}"/>
+                        <h:outputText value="Kolor: #{motorcycle.kolor}"/>
+                        <h:outputText value="Pojemność silnika: #{motorcycle.pojemnosc} cc"/>
+                        <h:outputText value="Power: #{motorcycle.moc} KM"/>
+                        <h:outputText value="Rok produkcji: #{motorcycle.rocznik}"/>
+                        <h:outputText value="Cena wypożyczenia za dobę: #{motorcycle.cena} PLN"/>
+                        <p:commandButton value="Wypożycz" action="#{rezerwationController.rezerwation}">
+                        <f:param name="selectedMotorcycleId" value="#{motorcycle.id}" />
                         </p:commandButton>
-&lt;!&ndash;                        <span class="product-badge status-#{product.inventoryStatus.name().toLowerCase()}">#{product.inventoryStatus.text}</span>&ndash;&gt;
-                    </div>
-                </div>
-            </p:dataViewListItem>-->
-        </p:dataView>
-        </h:form>
-        </div>
+                    </h:panelGrid>
+                </h:panelGrid>
+            </p:panel>
+            <p:separator/>
+        </ui:repeat>
     </ui:define>
-</ui:composition>
-</html>
 
-        <!--<h:form id="form">
-                    <p:dataTable var="motorcycle" value="#{motorcycleController.motorcycles}">
-                        <p:column headerText="Marka">
-                            <h:outputText value="#{motorcycle.marka}"/>
-                        </p:column>
-                        <p:column headerText="Model">
-                            <h:outputText value="#{motorcycle.model}"/>
-                        </p:column>
-                        <p:column headerText="Kolor">
-                            <h:outputText value="#{motorcycle.kolor}"/>
-                        </p:column>
-                        <p:column headerText="Pojemność silnika">
-                            <h:outputText value="#{motorcycle.pojemnosc} "/>
-                        </p:column>
-                        <p:column headerText="Moc">
-                            <h:outputText value="#{motorcycle.moc} KM"/>
-                        </p:column>
-                        <p:column headerText="Rocznik">
-                            <h:outputText value="#{motorcycle.rocznik}"/>
-                        </p:column>
-                        <p:column headerText="Cena">
-                            <h:outputText value="#{motorcycle.cena} zł"/>
-                        </p:column>
-                        <p:column headerText="Image Link">
-                            <h:outputText value="#{motorcycle.imageLink}"/>
-                        </p:column>
-                    </p:dataTable>
-                </h:form>-->
+</ui:composition>
+
+</html>

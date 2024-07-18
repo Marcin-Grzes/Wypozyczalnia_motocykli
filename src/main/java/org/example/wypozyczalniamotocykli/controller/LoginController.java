@@ -39,10 +39,6 @@ public class LoginController implements Serializable {
     private User_app user_app = new User_app();
 
 
-    public String login() {
-        return "/login";
-    }
-
     public String loginUser() {
         Optional<User_app> existingUser = myUserService.findByUsername(user_app.getUsername());
 

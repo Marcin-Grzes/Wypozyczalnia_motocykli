@@ -15,11 +15,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 
 import java.io.Serializable;
 import java.util.List;
+
 
 @Component
 @Scope("session")
@@ -27,6 +29,7 @@ import java.util.List;
 @NoArgsConstructor // Tworzymy także konstruktor bezargumentowy, aby umożliwić utworzenie nowego obiektu Motorcycle
 public class MotorcycleController implements Serializable {
     private  MotorcycleService motorcycleService;
+
 
     @Autowired
     public MotorcycleController(MotorcycleService motorcycleService) {
@@ -38,10 +41,12 @@ public class MotorcycleController implements Serializable {
     private Motorcycle newMotorcycle = new Motorcycle();
 
 
-
     public List<Motorcycle> getMotorcycles() {
         return motorcycleService.getAllMotorcycles();
     }
+
+
+
 
     public void addMotorcycle() {
         motorcycleService.saveMotorcycle(newMotorcycle);

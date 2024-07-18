@@ -40,16 +40,24 @@ public class RezerwationController {
     private User_app currentUser;
     private final HttpSession httpSession;
     private BigDecimal totalCost;
+    private final LogoutController logoutController;
 
     @Autowired
-    public RezerwationController(RezerwationService rezerwationService, MotorcycleService motorcycleService, HttpSession httpSession ) {
+    public RezerwationController(RezerwationService rezerwationService,
+                                 MotorcycleService motorcycleService,
+                                 HttpSession httpSession,
+                                 LogoutController logoutController ) {
         this.rezerwationService = rezerwationService;
         this.motorcycleService = motorcycleService;
         this.httpSession = httpSession;
+        this.logoutController = logoutController;
     }
 
     @PostConstruct
     public String rezerwation() {
+        if(!logoutController.isLoggedIn())
+            return "/login.xhtml?faces-redirect=true";
+        else {
         FacesContext facesContext = FacesContext.getCurrentInstance();
         this.selectedMotorcycleId = facesContext.getExternalContext().getRequestParameterMap().get("selectedMotorcycleId");
         System.out.println("selectedMotorcycleId: " + selectedMotorcycleId);
@@ -74,7 +82,7 @@ public class RezerwationController {
 
 
         return "add_rezerwation.xhtml?faces-redirect=true";
-    }
+    }}
 
     public void calculateTotalCost() {
         System.out.println("Data rozpoczęcia wypożyczenia: " + newRezerwation.getStart_date());

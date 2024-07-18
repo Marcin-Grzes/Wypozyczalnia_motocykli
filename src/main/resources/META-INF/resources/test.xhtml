@@ -8,23 +8,36 @@
     <ui:define name="title">
         Page 1 Title
     </ui:define>
+    <div class="card product">
+        <h:form id="form">
+            <p:dataView var="product" value="#{dataGridView.products}" rows="12" paginator="true"
+                        rowsPerPageTemplate="6,12,16"
+                        paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                        gridIcon="pi pi-th-large" listIcon="pi pi-bars">
+                <p:dataViewGridItem>
+                    <div class="product-grid-item card border-1">
 
-    <ui:define name="content">
-        <p:dataView value="#{motorcycleController.motorcycles}" var="motorcycle" layout="grid" rows="12">
-            <p:dataViewGridItem>
-                <p:graphicImage value="#{motorcycle.imageLink}" style="width:150px;height:100px"/>
-            </p:dataViewGridItem>
-            <p:dataViewGridItem>
-                <h:outputText value="Marka: #{motorcycle.marka}" />
-                <h:outputText value="Model: #{motorcycle.model}" />
-                <h:outputText value="Kolor: #{motorcycle.kolor}" />
-                <h:outputText value="Pojemność: #{motorcycle.pojemnosc}" />
-                <h:outputText value="Rocznik: #{motorcycle.rocznik}" />
-                <h:outputText value="Cena za wypożyczenie za dobę: #{motorcycle.cena}" />
-            </p:dataViewGridItem>
-        </p:dataView>
-</ui:define>
-
+                        <div class="product-grid-item-content">
+                            <p:graphicImage name="images/product/#{product.image}" library="demo"/>
+                            <div class="product-name">#{product.name}</div>
+                            <div class="product-description">#{product.description}</div>
+                            <p:rating readonly="true" value="#{product.rating}"/>
+                        </div>
+                        <div class="product-grid-item-bottom">
+                            <h:outputText value="#{product.price}" styleClass="product-price">
+                                <f:convertNumber currencySymbol="$" type="currency"/>
+                            </h:outputText>
+                            <p:commandButton type="button"
+                                             value="Add To Cart"
+                                             icon="pi pi-shopping-cart"
+                                             disabled="#{product.inventoryStatus == 'OUTOFSTOCK'}">
+                            </p:commandButton>
+                        </div>
+                    </div>
+                </p:dataViewGridItem>
+            </p:dataView>
+        </h:form>
+    </div>
         </ui:composition>
 
 </html>
