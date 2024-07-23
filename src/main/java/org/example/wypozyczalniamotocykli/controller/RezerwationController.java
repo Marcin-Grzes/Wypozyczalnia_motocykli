@@ -13,6 +13,8 @@ import org.example.wypozyczalniamotocykli.service.RezerwationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
+
+import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 import java.util.Optional;
 import java.math.BigDecimal;
@@ -71,10 +73,20 @@ public class RezerwationController {
     }}
 
     public void calculateTotalCost() {
-        if (newRezerwation.getStart_date() == null || newRezerwation.getEnd_date() == null || selectedMotorcycle.getCena().equals(BigDecimal.ZERO)) {
+
+        LocalDate startDate = newRezerwation.getStart_date();
+        LocalDate endDate = newRezerwation.getEnd_date();
+
+        if (startDate == null || endDate == null || selectedMotorcycle.getCena().equals(BigDecimal.ZERO))
+        {
             this.totalCost = BigDecimal.ZERO;
             return;
-        }
+            } else if (startDate.isAfter(endDate) || startDate.isEqual(endDate)){
+            FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_ERROR,
+                    "Błąd!", "Data rozpoczęcia jest wcześniejsza lub ta sama co data zakończenia wypożyczenia!");
+            FacesContext.getCurrentInstance().addMessage(null, message);
+            return;
+            }
 
         long diffInDays = ChronoUnit.DAYS.between(newRezerwation.getStart_date(), newRezerwation.getEnd_date());
 
