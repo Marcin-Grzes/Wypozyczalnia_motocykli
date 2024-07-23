@@ -19,7 +19,7 @@ import java.util.List;
 @Component
 @Scope("session")
 @AllArgsConstructor
-@NoArgsConstructor // Tworzymy także konstruktor bezargumentowy, aby umożliwić utworzenie nowego obiektu Motorcycle
+@NoArgsConstructor
 public class MotorcycleController implements Serializable {
     private MotorcycleService motorcycleService;
 
@@ -29,7 +29,6 @@ public class MotorcycleController implements Serializable {
         this.motorcycleService = motorcycleService;
     }
 
-    // Create a new instance of Motorcycle for the form to bind to
     @Getter
     @Setter
     private Motorcycle newMotorcycle = new Motorcycle();

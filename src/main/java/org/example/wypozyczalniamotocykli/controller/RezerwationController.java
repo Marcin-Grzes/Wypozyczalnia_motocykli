@@ -58,11 +58,8 @@ public class RezerwationController {
         if (foundMotorcycle != null) {
             this.selectedMotorcycle = foundMotorcycle;
         } else {
-
-
             this.selectedMotorcycle = null;
         }
-
 
         User_app currentUser = (User_app) httpSession.getAttribute("user");
         this.currentUser = currentUser;

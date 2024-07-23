@@ -17,9 +17,6 @@
                 <h:outputLabel value="Nazwa użytkownika:" for="username" />
                 <p:inputText id="username" value="#{modifyController.currentUser.username}"/>
 
-                <h:outputLabel value="Hasło:" for="password" />
-                <p:password id="password" value="#{modifyController.currentUser.password}"/>
-
                 <h:outputLabel value="Ulica:" for="street" />
                 <p:inputText id="street" value="#{modifyController.currentUser.street}"/>
 
@@ -27,7 +24,7 @@
                 <p:inputText id="number_house" value="#{modifyController.currentUser.number_house}"/>
 
                 <h:outputLabel value="Numer mieszkania:" for="number_flat" />
-                <p:inputNumber id="number_flat" value="#{modifyController.currentUser.number_flat}"/>
+                <p:inputText id="number_flat" value="#{modifyController.currentUser.number_flat}"/>
 
                 <h:outputLabel value="Kod pocztowy:" for="postal_code" />
                 <p:inputText id="postal_code" value="#{modifyController.currentUser.postal_code}"/>
@@ -38,8 +35,10 @@
                 <h:outputLabel value="Numer telefonu:" for="phone_number" />
                 <p:inputNumber id="phone_number" value="#{modifyController.currentUser.phone_number}"/>
                 <p:commandButton value="Zapisz" action="#{modifyController.save}" update="@form" style="width: 150px;"/>
+                <p:button value="Zmień hasło" outcome="/changePassword.xhtml" style="width: 150px;"/>
             </h:panelGrid>
                 <p:button value="Wróć do strony głównej" outcome="/home.xhtml" style="width: 250px;"/>
+
             </p:panel>
 
         </h:form>
