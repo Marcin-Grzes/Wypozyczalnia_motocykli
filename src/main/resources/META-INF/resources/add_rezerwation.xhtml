@@ -29,7 +29,7 @@
                     <h:outputLabel for="moc" value="Moc:"/>
                     <p:outputLabel id="moc" value="#{rezerwationController.selectedMotorcycle.moc} KM"/>
 
-                    <h:outputLabel for="speed" value="Prędkpść maksymalna:"/>
+                    <h:outputLabel for="speed" value="Prędkość maksymalna:"/>
                     <p:outputLabel id="speed" value="#{rezerwationController.selectedMotorcycle.maxSpeed} km/h"/>
 
                     <h:outputLabel for="rocznik" value="Rok produkcji:"/>
@@ -56,19 +56,19 @@
                 <p:inputText id="username" value="#{rezerwationController.currentUser.username}"/>
 
                 <h:outputLabel value="Ulica:" for="street" />
-                <p:inputText id="street" value="#{rezerwationController.currentUser.street}"/>
+                <p:inputText id="street" value="#{rezerwationController.currentUser.street}" required="true"/>
 
                 <h:outputLabel value="Numer domu:" for="number_house" />
-                <p:inputText id="number_house" value="#{rezerwationController.currentUser.number_house}"/>
+                <p:inputText id="number_house" value="#{rezerwationController.currentUser.number_house}" required="true"/>
 
                 <h:outputLabel value="Numer mieszkania:" for="number_flat" />
                 <p:inputText id="number_flat" value="#{rezerwationController.currentUser.number_flat}"/>
 
                 <h:outputLabel value="Kod pocztowy:" for="postal_code" />
-                <p:inputText id="postal_code" value="#{rezerwationController.currentUser.postal_code}"/>
+                <p:inputText id="postal_code" value="#{rezerwationController.currentUser.postal_code}" required="true"/>
 
                 <h:outputLabel value="Miejscowość:" for="city" />
-                <p:inputText id="city" value="#{rezerwationController.currentUser.city}"/>
+                <p:inputText id="city" value="#{rezerwationController.currentUser.city}" required="true"/>
 
                 <h:outputLabel value="Numer telefonu:" for="phone_number" />
                 <p:inputText id="phone_number" value="#{rezerwationController.currentUser.phone_number}"/>

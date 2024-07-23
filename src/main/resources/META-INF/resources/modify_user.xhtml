@@ -18,19 +18,19 @@
                 <p:inputText id="username" value="#{modifyController.currentUser.username}"/>
 
                 <h:outputLabel value="Ulica:" for="street" />
-                <p:inputText id="street" value="#{modifyController.currentUser.street}"/>
+                <p:inputText id="street" value="#{modifyController.currentUser.street}" required="true"/>
 
                 <h:outputLabel value="Numer domu:" for="number_house" />
-                <p:inputText id="number_house" value="#{modifyController.currentUser.number_house}"/>
+                <p:inputText id="number_house" value="#{modifyController.currentUser.number_house}" required="true"/>
 
                 <h:outputLabel value="Numer mieszkania:" for="number_flat" />
                 <p:inputText id="number_flat" value="#{modifyController.currentUser.number_flat}"/>
 
                 <h:outputLabel value="Kod pocztowy:" for="postal_code" />
-                <p:inputText id="postal_code" value="#{modifyController.currentUser.postal_code}"/>
+                <p:inputText id="postal_code" value="#{modifyController.currentUser.postal_code}" required="true"/>
 
                 <h:outputLabel value="Miejscowość:" for="city" />
-                <p:inputText id="city" value="#{modifyController.currentUser.city}"/>
+                <p:inputText id="city" value="#{modifyController.currentUser.city}" required="true"/>
 
                 <h:outputLabel value="Numer telefonu:" for="phone_number" />
                 <p:inputNumber id="phone_number" value="#{modifyController.currentUser.phone_number}"/>
