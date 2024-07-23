@@ -23,6 +23,8 @@ public class Motorcycle {
     private int pojemnosc;
     private int moc;
     private int rocznik;
+    @Column(name = "maxSpeed", nullable = false, columnDefinition = "int default 0")
+    private int maxSpeed = 0;
     private BigDecimal cena;
     private String imageLink;
 
